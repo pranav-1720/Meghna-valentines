@@ -1,0 +1,48 @@
+:root{
+  --bg1:#ffafbd;
+  --bg2:#ffc3a0;
+  --card:#fff6f9;
+  --accent:#ff4d6d;
+  --muted:#7a4b57;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,0.95),var(--card));
+  width:100%;max-width:760px;border-radius:20px;padding:36px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);text-align:center;
+}
+.message h1{margin:0;font-size:2rem;color:var(--accent)}
+.message .romantic{color:var(--muted);margin-top:8px;font-size:1.05rem}
+.question{margin-top:28px}
+.question h2{font-size:1.5rem;margin-bottom:18px;color:#4f2a33}
+.buttons{height:120px;position:relative}
+.btn{
+  --pad:14px 34px;
+  border:0;padding:var(--pad);border-radius:999px;font-weight:600;cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);position:absolute;transform:translate(-50%,-50%);
+}
+.btn.yes{background:linear-gradient(90deg,#ff6b9a,#ff3d6a);color:white;left:40%;top:50%}
+.btn.no{background:#fff;color:var(--accent);border:2px solid #ffd6de;left:60%;top:50%}
+
+/* Celebration page */
+.celebrate{
+  padding:20px 0;
+}
+.celebrate h1{color:var(--accent);font-size:2.2rem;margin:0}
+.bullets{margin-top:16px;text-align:left;display:inline-block;color:var(--muted)}
+.bullets li{margin:8px 0}
+
+/* small screens */
+@media (max-width:480px){
+  .card{padding:22px}
+  .message h1{font-size:1.5rem}
+  .buttons{height:160px}
+}
