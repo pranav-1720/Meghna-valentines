@@ -82,6 +82,23 @@ body::before{
   50%{opacity:0.8}
   100%{transform:translateY(100vh) rotate(360deg);opacity:0}
 }
+
+.celebrate .decorative-hearts .floating-heart{
+  font-size:2.5rem;opacity:0.5;
+  animation:float-celebrate 15s infinite ease-in-out;
+  filter:drop-shadow(0 4px 6px rgba(255,77,109,0.2));
+}
+.celebrate .decorative-hearts .floating-heart:nth-child(1){left:8%;top:-40px;animation-delay:0s;animation-duration:14s}
+.celebrate .decorative-hearts .floating-heart:nth-child(2){left:25%;top:-50px;animation-delay:1.5s;animation-duration:16s;font-size:2rem}
+.celebrate .decorative-hearts .floating-heart:nth-child(3){left:60%;top:-35px;animation-delay:2s;animation-duration:15s}
+.celebrate .decorative-hearts .floating-heart:nth-child(4){left:80%;top:-45px;animation-delay:0.8s;animation-duration:17s;font-size:2.2rem}
+.celebrate .decorative-hearts .floating-heart:nth-child(5){left:42%;top:-30px;animation-delay:2.5s;animation-duration:13s}
+.celebrate .decorative-hearts .floating-heart:nth-child(6){left:15%;top:-60px;animation-delay:1s;animation-duration:15.5s;font-size:2.3rem}
+@keyframes float-celebrate{
+  0%{transform:translateY(0) rotate(0deg) scale(1);opacity:0.5}
+  50%{opacity:0.8}
+  100%{transform:translateY(100vh) rotate(720deg) scale(0.8);opacity:0}
+}
 .question h2{
   font-size:1.5rem;margin-bottom:18px;color:#4f2a33;
   position:relative;
@@ -105,11 +122,66 @@ body::before{
 
 /* Celebration page */
 .celebrate{
-  padding:20px 0;
+  padding:40px 20px;
+  background:linear-gradient(135deg,rgba(255,107,154,0.05),rgba(255,195,160,0.05));
+  border:3px solid rgba(255,107,154,0.3);
+  position:relative;
+  overflow:hidden;
 }
-.celebrate h1{color:var(--accent);font-size:2.2rem;margin:0}
-.bullets{margin-top:16px;text-align:left;display:inline-block;color:var(--muted)}
-.bullets li{margin:8px 0}
+.celebrate::before{
+  content:'';
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:repeating-linear-gradient(45deg,transparent,transparent 35px,rgba(255,107,154,0.05) 35px,rgba(255,107,154,0.05) 70px);
+  pointer-events:none;
+}
+.celebrate h1{
+  color:var(--accent);font-size:2.5rem;margin:0 0 8px 0;
+  text-shadow:0 4px 8px rgba(255,77,109,0.2);
+  position:relative;z-index:2;
+  animation:pulse-scale 2s ease-in-out infinite;
+}
+@keyframes pulse-scale{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+.celebrate .romantic{
+  font-size:1.2rem;color:var(--muted);margin:4px 0 20px 0;
+  font-style:italic;position:relative;z-index:2;
+}
+.hearts-top,
+.hearts-bottom{
+  font-size:1.8rem;margin:16px 0;animation:bounce 2s ease-in-out infinite;
+  position:relative;z-index:2;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.celebrate .bullets{
+  margin-top:16px;text-align:left;display:inline-block;color:var(--muted);
+  position:relative;z-index:2;
+  background:rgba(255,255,255,0.5);padding:20px 30px;border-radius:15px;
+  border:2px dashed rgba(255,107,154,0.3);
+}
+.celebrate .bullets li{
+  margin:12px 0;font-size:1.1rem;position:relative;
+  padding-left:10px;
+}
+.celebrate .bullets li::before{
+  content:'💕';
+  margin-right:10px;
+}
+
+.corner-decorations{
+  position:fixed;pointer-events:none;z-index:2;font-size:1.5rem;
+}
+.corner{
+  position:fixed;font-weight:bold;opacity:0.7;
+}
+.corner.top-left{top:20px;left:20px}
+.corner.top-right{top:20px;right:20px}
+.corner.bottom-left{bottom:20px;left:20px}
+.corner.bottom-right{bottom:20px;right:20px}
 
 /* small screens */
 @media (max-width:480px){
